@@ -1,6 +1,6 @@
 # 📌 api.http — Dummy Non-Persistent Product API
 
-@baseUrl = [http://localhost:8080/api/products](http://localhost:8080/api/products)
+@baseUrl = http://localhost:8080/api/products
 
 ### 1️⃣ Get All Products
 
@@ -8,7 +8,7 @@ GET {{baseUrl}}
 
 ### 2️⃣ Get Product by ID
 
-GET {{baseUrl}}/1
+GET {{baseUrl}}/0
 
 ### 3️⃣ Create Product
 

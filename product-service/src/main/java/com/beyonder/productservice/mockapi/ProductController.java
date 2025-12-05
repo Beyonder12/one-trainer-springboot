@@ -13,6 +13,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public String getProductById(@PathVariable Long id) {
+        long a = 2/id;
         return "Get Product by ID: " + id;
     }
 
