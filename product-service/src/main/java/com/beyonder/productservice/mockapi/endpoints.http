@@ -1,0 +1,35 @@
+# 📌 api.http — Dummy Non-Persistent Product API
+
+@baseUrl = [http://localhost:8080/api/products](http://localhost:8080/api/products)
+
+### 1️⃣ Get All Products
+
+GET {{baseUrl}}
+
+### 2️⃣ Get Product by ID
+
+GET {{baseUrl}}/1
+
+### 3️⃣ Create Product
+
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "price": 12000000
+}
+
+### 4️⃣ Update Product
+
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": "Laptop Pro",
+  "price": 18000000
+}
+
+### 5️⃣ Delete Product
+
+DELETE {{baseUrl}}/1

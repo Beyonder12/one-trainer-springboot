@@ -6,7 +6,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/inmemory/products") // prefix updated
-public class ProductController {
+public class InMemoryProductController {
 
     // In-memory non-persistent storage
     private final List<Map<String, String>> db = new ArrayList<>();

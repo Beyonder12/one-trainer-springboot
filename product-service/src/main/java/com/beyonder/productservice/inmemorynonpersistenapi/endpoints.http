@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:8080/api/inmemory/products
+
+
+### Get All
+GET {{baseUrl}}
+
+
+### Get by ID
+GET {{baseUrl}}/1
+
+
+### Create
+POST {{baseUrl}}
+Content-Type: application/json
+
+
+{
+  "name": "Laptop",
+  "price": "12000000"
+}
+
+
+### Update
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+
+{
+  "name": "Laptop Pro",
+  "price": "18000000"
+}
+
+
+### Delete
+DELETE {{baseUrl}}/1
