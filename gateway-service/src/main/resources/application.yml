@@ -11,3 +11,5 @@ spring:
           uri: http://localhost:8081
           predicates:
             - Path=/products/**
+          filters:
+            - RewritePath=/products(?<segment>/?.*), /api/products${segment}

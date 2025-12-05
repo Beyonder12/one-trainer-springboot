@@ -130,10 +130,10 @@ Setiap hari terdiri dari pembahasan teori dan **hands-on** yang langsung diterap
 
 ```
 springboot-training/
- ├── day1/
- ├── day2/
- ├── day3/
- ├── day4/
+ ├── service1/
+ ├── service2/
+ ├── service3/
+ ├── service4/
  ├── README.md
 ```
 
@@ -150,3 +150,8 @@ Setelah mengikuti workshop ini, peserta diharapkan mampu:
 ✔ Melakukan monitoring & autoscaling menggunakan Actuator + Kubernetes HPA
 
 ---
+
+[//]: # (Squash last two commits)
+git reset --soft HEAD~2
+git commit -m "squash two last commits"
+git push --force-with-lease
