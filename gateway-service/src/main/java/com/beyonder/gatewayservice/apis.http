@@ -1,0 +1,11 @@
+# Gateway akan forward ke http://localhost:8081/products/1
+
+@baseUrl = http://localhost:8080/products
+
+### 1️⃣ Get All Products
+
+GET {{baseUrl}}
+
+### 2️⃣ Get Product by ID
+
+GET {{baseUrl}}/1
