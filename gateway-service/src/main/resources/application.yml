@@ -12,4 +12,5 @@ spring:
           predicates:
             - Path=/products/**
           filters:
+            - LoggingGatewayFilter
             - RewritePath=/products(?<segment>/?.*), /api/products${segment}
