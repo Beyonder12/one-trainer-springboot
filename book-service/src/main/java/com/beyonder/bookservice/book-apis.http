@@ -1,0 +1,12 @@
+@baseUrl = http://localhost:8080
+
+### Access H2 DB
+GET {{baseUrl}}/h2-console
+
+### Create a Book
+POST {{baseUrl}}/books
+Content-Type: application/json
+
+{
+  "title": "Laptop"
+}
