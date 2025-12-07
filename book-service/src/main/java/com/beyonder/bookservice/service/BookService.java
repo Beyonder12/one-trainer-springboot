@@ -48,4 +48,12 @@ public class BookService {
     public List<Book> findBooksByTitleContaining(String title) {
         return bookRepository.findBooksByTitleContaining(title);
     }
+
+    public List<Book> findBooksByAuthor(String author) {
+        return bookRepository.findBooksByAuthor(author);
+    }
+
+    public List<Book> findBooksByTitleNative(String title) {
+        return bookRepository.findBooksByTitleNative(title);
+    }
 }

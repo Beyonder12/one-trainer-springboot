@@ -5,6 +5,7 @@ import com.beyonder.bookservice.dto.BookRespDto;
 import com.beyonder.bookservice.entity.Book;
 import com.beyonder.bookservice.service.BookService;
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,8 +22,20 @@ public class BookManualQueryController {
     @Autowired
     BookService bookService;
 
+    // JPQL
     @GetMapping("/title-containing/{title}")
     public List<Book> findBooksByTitleContaining(@PathVariable("title") String title) {
         return bookService.findBooksByTitleContaining(title);
+    }
+
+    @GetMapping("/author")
+    public List<Book> findBooksByAuthor(@PathParam("author") String author) {
+        return bookService.findBooksByAuthor(author);
+    }
+
+    // Native SQL
+    @GetMapping("/title")
+    public List<Book> findBooksByTitleNative(@PathParam("title") String title) {
+        return bookService.findBooksByTitleNative(title);
     }
 }

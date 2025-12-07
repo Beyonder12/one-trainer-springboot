@@ -30,3 +30,9 @@ GET {{baseUrl}}/pageable?page=1&size=1&sort=author,desc
 ### Get All Books With Title Containing
 GET {{baseUrl1}}/title-containing/b
 
+### Get All Books By Author
+GET {{baseUrl1}}/author?author=Charles Darwin
+
+### Get All Books By Title
+GET {{baseUrl1}}/title?title=On the Origin of Species
+
