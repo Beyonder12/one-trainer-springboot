@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:8080/api/books
-
+@baseUrl1 = http://localhost:8080/api/books-manual-query
 ### Access H2 DB
 GET {{baseUrl}}/h2-console
 
@@ -26,4 +26,7 @@ GET {{baseUrl}}
 
 ### Get All Books With Pageable
 GET {{baseUrl}}/pageable?page=1&size=1&sort=author,desc
+
+### Get All Books With Title Containing
+GET {{baseUrl1}}/title-containing/b
 
