@@ -1,10 +1,10 @@
-@baseUrl = http://localhost:8080
+@baseUrl = http://localhost:8080/api/books
 
 ### Access H2 DB
 GET {{baseUrl}}/h2-console
 
 ### Create a Book
-POST {{baseUrl}}/books
+POST {{baseUrl}}/using-dummy-dto
 Content-Type: application/json
 
 {
