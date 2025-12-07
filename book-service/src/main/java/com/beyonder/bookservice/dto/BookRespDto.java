@@ -12,6 +12,5 @@ public class BookRespDto {
     private Long id;
     private String title;
     private String author;
-    private Integer year;
 
 }

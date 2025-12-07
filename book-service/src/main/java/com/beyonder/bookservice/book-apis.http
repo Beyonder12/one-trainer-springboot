@@ -3,10 +3,23 @@
 ### Access H2 DB
 GET {{baseUrl}}/h2-console
 
-### Create a Book
+### Create a Book Using Dummy DTO
 POST {{baseUrl}}/using-dummy-dto
 Content-Type: application/json
 
 {
   "title": "Laptop"
 }
+
+### Create a Book With db Insertion
+POST {{baseUrl}}/with-db-insertion
+Content-Type: application/json
+
+{
+  "title": "On the Origin of Species",
+  "author": "Charles Darwin",
+  "year": 1859
+}
+
+### Get All Books
+GET {{baseUrl}}/
