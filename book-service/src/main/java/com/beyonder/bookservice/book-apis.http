@@ -22,4 +22,8 @@ Content-Type: application/json
 }
 
 ### Get All Books
-GET {{baseUrl}}/
+GET {{baseUrl}}
+
+### Get All Books With Pageable
+GET {{baseUrl}}/pageable?page=1&size=1&sort=author,desc
+

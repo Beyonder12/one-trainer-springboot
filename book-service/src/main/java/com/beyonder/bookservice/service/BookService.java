@@ -6,6 +6,8 @@ import com.beyonder.bookservice.entity.Book;
 import com.beyonder.bookservice.repository.BookRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -37,5 +39,9 @@ public class BookService {
             bookRespDtoList.add(bookRespDto);
         }
         return bookRespDtoList;
+    }
+
+    public Page<Book> getAllBooksPageable(Pageable pageable) {
+        return bookRepository.findAll(pageable);
     }
 }
