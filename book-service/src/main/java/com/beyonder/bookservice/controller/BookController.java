@@ -3,9 +3,11 @@ package com.beyonder.bookservice.controller;
 import com.beyonder.bookservice.dto.BookReqDto;
 import com.beyonder.bookservice.dto.BookRespDto;
 import com.beyonder.bookservice.service.BookService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +32,7 @@ public class BookController {
     }
 
     @PostMapping("/with-db-insertion")
-    public ResponseEntity<BookReqDto> createBookWithDbInsertion(@RequestBody BookReqDto bookReqDto) {
+    public ResponseEntity<BookReqDto> createBookWithDbInsertion(@Valid @RequestBody BookReqDto bookReqDto) {
         bookService.createBookWithDbInsertion(bookReqDto);
         // Return to client
         return ResponseEntity
