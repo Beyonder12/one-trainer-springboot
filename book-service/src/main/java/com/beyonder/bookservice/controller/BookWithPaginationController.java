@@ -1,7 +1,6 @@
 package com.beyonder.bookservice.controller;
 
 import com.beyonder.bookservice.entity.Book;
-import com.beyonder.bookservice.repository.BookWithPaginationRepository;
 import com.beyonder.bookservice.service.BookWithPaginationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

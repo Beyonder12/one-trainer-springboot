@@ -1,0 +1,12 @@
+#############################################
+#           📘 COURSE SERVICE API           #
+#############################################
+
+@baseUrlCourse = http://localhost:8080/api/courses
+@courseId = 1
+
+### Get Course (tanpa load manual lessons di client)
+GET {{baseUrlCourse}}/{{courseId}}
+
+### Get Lessons of a Course (trigger lazy load di service)
+GET {{baseUrlCourse}}/{{courseId}}/lessons
