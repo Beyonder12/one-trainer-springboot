@@ -13,7 +13,6 @@ import java.util.List;
 @Repository
 public interface BookWithPaginationRepository extends JpaRepository<Book, Long> {
 
-    @Query("SELECT b FROM Book b WHERE b.author = :authorName")
+    @Query("SELECT b from Book b where b.author = :authorName")
     Page<Book> findBooksByAuthor(@Param("authorName") String authorName, Pageable pageable);
-
 }
