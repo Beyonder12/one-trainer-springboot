@@ -1,5 +1,6 @@
 package com.beyonder.productservice.mockapi;
 
+import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,7 +13,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public String getProductById(@PathVariable Long id) {
+    public String getProductById(@PathVariable Long id, @PathParam("name") String name) {
         long a = 2/id;
         return "Get Product by ID: " + id;
     }
