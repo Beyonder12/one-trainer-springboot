@@ -1,0 +1,5 @@
+@baseUrl = http://localhost:8080/api/books-manual-query
+
+### Get Books by author With Pagination
+GET {{baseUrl}}/author?author=J.K. Rowling
+

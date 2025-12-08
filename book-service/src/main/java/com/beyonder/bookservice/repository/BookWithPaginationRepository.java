@@ -11,6 +11,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long> {
+public interface BookWithPaginationRepository extends JpaRepository<Book, Long> {
+
+    @Query("SELECT b FROM Book b WHERE b.author = :authorName")
+    Page<Book> findBooksByAuthor(@Param("authorName") String authorName, Pageable pageable);
 
 }

@@ -1,16 +1,9 @@
 package com.beyonder.bookservice.controller;
 
-import com.beyonder.bookservice.dto.BookReqDto;
-import com.beyonder.bookservice.dto.BookRespDto;
 import com.beyonder.bookservice.entity.Book;
-import com.beyonder.bookservice.service.BookService;
-import jakarta.validation.Valid;
+import com.beyonder.bookservice.service.BookManualQueryService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,22 +13,22 @@ import java.util.List;
 public class BookManualQueryController {
 
     @Autowired
-    BookService bookService;
+    private BookManualQueryService bookManualQueryService;
 
     // JPQL
     @GetMapping("/title-containing/{title}")
     public List<Book> findBooksByTitleContaining(@PathVariable("title") String title) {
-        return bookService.findBooksByTitleContaining(title);
+        return bookManualQueryService.findBooksByTitleContaining(title);
     }
 
     @GetMapping("/author")
     public List<Book> findBooksByAuthor(@PathParam("author") String author) {
-        return bookService.findBooksByAuthor(author);
+        return bookManualQueryService.findBooksByAuthor(author);
     }
 
     // Native SQL
     @GetMapping("/title")
     public List<Book> findBooksByTitleNative(@PathParam("title") String title) {
-        return bookService.findBooksByTitleNative(title);
+        return bookManualQueryService.findBooksByTitleNative(title);
     }
 }

@@ -1,0 +1,12 @@
+@baseUrl = http://localhost:8080/api/book-with-pagination
+
+### Get Books by author With Pagination
+GET {{baseUrl}}/author?author=J.K. Rowling&page=0&size=5
+
+### Create a Book Using Dummy DTO
+POST {{baseUrl}}/using-dummy-dto
+Content-Type: application/json
+
+{
+  "title": "Laptop"
+}
