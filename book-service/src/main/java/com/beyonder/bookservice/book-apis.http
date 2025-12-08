@@ -17,8 +17,7 @@ Content-Type: application/json
 
 {
   "title": "On the Origin of Species",
-  "author": "Charles Darwin",
-  "year": 1859
+  "year": 500
 }
 
 ### Get All Books
