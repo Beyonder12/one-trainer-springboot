@@ -1,0 +1,5 @@
+@baseUrl = http://localhost:8080/api/book-with-pagination-sorted-dto
+
+### Get Books by author With Pagination
+GET {{baseUrl}}/author?author=J.K. Rowling&page=0&size=5
+
