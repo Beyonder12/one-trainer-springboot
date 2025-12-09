@@ -4,10 +4,7 @@ import com.beyonder.bookservice.entity.lazyandeager.Course;
 import com.beyonder.bookservice.entity.lazyandeager.Lesson;
 import com.beyonder.bookservice.service.lazyandeager.CourseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,16 @@ public class CourseController {
     @GetMapping("/{id}/lessons")
     public List<Lesson> getCourseLessons(@PathVariable Long id) {
         return courseService.getCourseLessons(id);
+    }
+
+    @PostMapping
+    public Course addCourse(@RequestBody Course course) {
+        courseService.addCourse(course);
+        return course;
+    }
+
+    @GetMapping
+    public List<Course> findAll() {
+        return courseService.findAll();
     }
 }

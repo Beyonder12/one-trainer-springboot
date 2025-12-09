@@ -10,3 +10,14 @@ GET {{baseUrlCourse}}/{{courseId}}
 
 ### Get Lessons of a Course (trigger lazy load di service)
 GET {{baseUrlCourse}}/{{courseId}}/lessons
+
+### Create a Book With db Insertion
+POST {{baseUrlCourse}}
+Content-Type: application/json
+
+{
+  "name": "MANTAP"
+}
+
+### Get Courses
+GET {{baseUrlCourse}}

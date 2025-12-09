@@ -28,4 +28,17 @@ public class CourseService {
         // lessons baru akan di-load DI SINI
         return course.getLessons();
     }
+
+    @Transactional
+    public void addCourse(Course course) {
+        if (course.getId() == null) {
+            throw new RuntimeException();
+        }
+
+        courseRepository.save(course);
+    }
+
+    public List<Course> findAll() {
+        return courseRepository.findAll();
+    }
 }
