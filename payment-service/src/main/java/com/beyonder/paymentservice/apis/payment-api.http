@@ -1,1 +1,4 @@
 localhost:8082/api/payments/hello
+
+### For Kubernetes 30000 - 37000+
+localhost:30082/api/payments/hello

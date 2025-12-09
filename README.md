@@ -159,6 +159,8 @@ docker run -p 8082:8081 order-service:latest
 docker run -p 8082:8081 order-service:latest -d
 
 kubectl get nodes
+kubectl get pods
+kubectl get svc
 kubectl apply -f deployment.yml
 
 kubectl delete deployment order-service
@@ -167,3 +169,7 @@ kubectl delete service order-service
 
 SUBTOPIC 3.1.2:
 docker compose --profile dev up --build -d
+
+FOR PODMAN
+podman compose --profile dev | prod up --build
+

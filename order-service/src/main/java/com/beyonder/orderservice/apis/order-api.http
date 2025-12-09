@@ -1,1 +1,5 @@
 localhost:8081/api/orders/hello
+
+
+### For Kubernetes 30000 - 37000+
+localhost:30082/api/orders/hello
