@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: book-service-config
+  namespace: dev
+data:
+  database.url: "jdbc:postgresql://postgres-dev:5432/bookdb"
+  kafka.bootstrap.servers: "kafka-dev:9092"
+  logging.level: "DEBUG"
+  server.port: "8080"

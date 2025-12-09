@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-service
+  namespace: dev  # Change to staging or prod as needed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-service
+  template:
+    metadata:
+      labels:
+        app: book-service
+    spec:
+      containers:
+        - name: book-service
+          image: your-registry/book-service:latest
+          ports:
+            - containerPort: 8080
+
+          # METHOD 1: Individual environment variables from ConfigMap
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: book-service-config
+                  key: database.url
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: book-service-config
+                  key: kafka.bootstrap.servers
+            - name: LOGGING_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: book-service-config
+                  key: logging.level
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: book-service-config
+                  key: server.port
