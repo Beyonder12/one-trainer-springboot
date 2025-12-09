@@ -17,10 +17,6 @@ RUN ./mvnw clean package -DskipTests
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-# Create non-root user for security
-RUN groupadd -r spring && useradd -r -g spring spring
-USER spring:spring
-
 # Copy the built jar
 COPY --from=builder /app/target/*.jar app.jar
 
