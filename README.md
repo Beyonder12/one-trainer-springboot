@@ -156,3 +156,9 @@ docker build -t my-image .
 docker build -t order-service:latest .
 docker run -p 8082:8081 order-service:latest
 docker run -p 8082:8081 order-service:latest -d
+
+kubectl get nodes
+kubectl apply -f deployment.yml
+
+kubectl delete deployment order-service
+kubectl delete service order-service
