@@ -149,4 +149,10 @@ Setelah mengikuti workshop ini, peserta diharapkan mampu:
 ✔ Menggunakan Resilience4j untuk meningkatkan reliability aplikasi
 ✔ Melakukan monitoring & autoscaling menggunakan Actuator + Kubernetes HPA
 
----
+--- 
+
+Build image:
+docker build -t my-image .
+docker build -t order-service:latest .
+docker run -p 8082:8081 order-service:latest
+docker run -p 8082:8081 order-service:latest -d
