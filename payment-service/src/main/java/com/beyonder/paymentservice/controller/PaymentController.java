@@ -12,7 +12,7 @@ public class PaymentController {
     @Value("${environment}")
     private String environment;
 
-    @GetMapping
+    @GetMapping("/hello")
     public String hello() {
         return "Hello Payments from : " + environment;
     }

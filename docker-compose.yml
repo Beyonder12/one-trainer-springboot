@@ -39,7 +39,7 @@ services:
     image: payment-service:latest
     container_name: payment-service
     build:
-      context: order-service
+      context: payment-service
     environment:
       - ENVIRONMENT="RUNNING PROD"
     ports:
