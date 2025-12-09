@@ -1,5 +1,6 @@
 package com.beyonder.bookservice.controller;
 
+import com.beyonder.bookservice.dto.BaseRespDto;
 import com.beyonder.bookservice.dto.BookReqDto;
 import com.beyonder.bookservice.dto.BookRespDto;
 import com.beyonder.bookservice.entity.Book;
@@ -43,9 +44,9 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<List<BookRespDto>> getAllBooks() {
-        List<BookRespDto> bookRespDtoList = bookService.getAllBooks();
-        return ResponseEntity.ok(bookRespDtoList);
+    public ResponseEntity<BaseRespDto<List<BookRespDto>>> getAllBooks() {
+        List<BookRespDto> bookRespDtos = bookService.getAllBooks();
+        return ResponseEntity.ok().body(new BaseRespDto<List<BookRespDto>>(bookRespDtos));
     }
 
     @GetMapping("/pageable")
