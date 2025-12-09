@@ -150,6 +150,7 @@ Setelah mengikuti workshop ini, peserta diharapkan mampu:
 ✔ Melakukan monitoring & autoscaling menggunakan Actuator + Kubernetes HPA
 
 --- 
+SUBTOPIC 3.1.1:
 
 Build image:
 docker build -t my-image .
@@ -162,3 +163,7 @@ kubectl apply -f deployment.yml
 
 kubectl delete deployment order-service
 kubectl delete service order-service
+
+
+SUBTOPIC 3.1.2:
+docker compose --profile dev up

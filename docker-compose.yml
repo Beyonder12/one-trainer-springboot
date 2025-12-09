@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+  order-service-staging: # akan membuat container ini ketika perintah docker compose menggunakan profile dev
+    image: order-service:staging
+    container_name: order-service
+    build:
+      context: order-service
+      dockerfile: Dockerfilev_basic
+    environment:
+      - ENVIRONMENT="RUNNING STAGING"
+    ports:
+      - "8081:8081"
+    profiles:
+      - dev
+  payment-service-staging: # akan membuat container ini ketika perintah docker compose menggunakan profile dev
+    image: payment-service:staging
+    container_name: payment-service
+    build:
+      context: payment-service
+      dockerfile: Dockerfilev_basic
+    environment:
+      - ENVIRONMENT="RUNNING STAGING"
+    ports:
+      - "8082:8082"
+    profiles:
+      - dev
+  order-service: # akan membuat container ini ketika perintah docker compose menggunakan profile prod
+    image: order-service:latest
+    container_name: order-service
+    build:
+      context: order-service
+    environment:
+      - ENVIRONMENT="RUNNING PROD"
+    ports:
+      - "8081:8081"
+    profiles:
+      - prod
+  payment-service: # akan membuat container ini ketika perintah docker compose menggunakan profile prod
+    image: payment-service:latest
+    container_name: payment-service
+    build:
+      context: order-service
+    environment:
+      - ENVIRONMENT="RUNNING PROD"
+    ports:
+      - "8082:8082"
+    profiles:
+      - prod
