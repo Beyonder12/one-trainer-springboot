@@ -26,7 +26,7 @@ public class Course {
     private String instructor;
 
     // LAZY = lesson tidak di-load saat GET course
-    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("course")
     private List<Lesson> lessons = new ArrayList<>();
 }
