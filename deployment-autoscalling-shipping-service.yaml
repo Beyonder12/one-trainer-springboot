@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2 # Ini versioning dari kubernetes
+kind: HorizontalPodAutoscaler # Ini jenis dari kube
+metadata:
+  name: autoscale-hpa # nama kube
+spec: # Ini spesifikasinya
+  scaleTargetRef:  # Target untuk auto scale
+    apiVersion: apps/v1 # Version dari kube spec
+    kind: Deployment # menghubungkan target config autoscaling ke deployment
+    name: shipping-service # nama deployment yang ingin di hubungkan
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource # Sumber
+      resource:
+        name: cpu # Jika penggunaan (utilization) cpu naik menjadi rata2 50% maka jadi 3 pod
+        target:
+          type: Utilization
+          averageUtilization: 20
