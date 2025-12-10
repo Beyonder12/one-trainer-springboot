@@ -15,4 +15,4 @@ spec: # Ini spesifikasinya
         name: cpu # Jika penggunaan (utilization) cpu naik menjadi rata2 50% maka jadi 3 pod
         target:
           type: Utilization
-          averageUtilization: 20
+          averageUtilization: 13
