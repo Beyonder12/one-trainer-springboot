@@ -1,23 +1,23 @@
 # ===========================================
-# ORDER SERVICE
+# PRODUCT SERVICE
 # ===========================================
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order-service
+  name: product-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: order-service
+      app: product-service
   template:
     metadata:
       labels:
-        app: order-service
+        app: product-service
     spec:
       containers:
-        - name: order-service
-          image: order-service:latest
+        - name: product-service
+          image: product-service:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 8081
@@ -25,51 +25,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: order-service
+  name: product-service
 spec:
   type: ClusterIP
   selector:
-    app: order-service
+    app: product-service
   ports:
     - port: 8081
       targetPort: 8081
-
-# ===========================================
-# PAYMENT SERVICE
-# ===========================================
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: payment-service
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: payment-service
-  template:
-    metadata:
-      labels:
-        app: payment-service
-    spec:
-      containers:
-        - name: payment-service
-          image: payment-service:latest
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 8082
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: payment-service
-spec:
-  type: ClusterIP
-  selector:
-    app: payment-service
-  ports:
-    - port: 8082
-      targetPort: 8082
 
 # ===========================================
 # USER SERVICE
@@ -94,7 +57,7 @@ spec:
           image: user-service:latest
           imagePullPolicy: Never
           ports:
-            - containerPort: 8083
+            - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
@@ -104,6 +67,43 @@ spec:
   type: ClusterIP
   selector:
     app: user-service
+  ports:
+    - port: 8082
+      targetPort: 8082
+
+# ===========================================
+# ORDER SERVICE
+# ===========================================
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: order-service
+          image: order-service:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+spec:
+  type: ClusterIP
+  selector:
+    app: order-service
   ports:
     - port: 8083
       targetPort: 8083
@@ -133,12 +133,12 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: SERVICE_ORDER_URL
-              value: "http://order-service:8081"
-            - name: SERVICE_PAYMENT_URL
-              value: "http://payment-service:8082"
+            - name: SERVICE_PRODUCT_URL
+              value: "http://product-service:8081"
             - name: SERVICE_USER_URL
-              value: "http://user-service:8083"
+              value: "http://user-service:8082"
+            - name: SERVICE_ORDER_URL
+              value: "http://order-service:8083"
 ---
 apiVersion: v1
 kind: Service
