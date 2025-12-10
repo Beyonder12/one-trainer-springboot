@@ -167,6 +167,7 @@ kubectl delete deployment order-service
 kubectl delete service order-service
 
 
+
 SUBTOPIC 3.1.2:
 docker compose --profile dev up --build -d
 
