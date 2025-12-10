@@ -1,5 +1,7 @@
 DEPLOY Command
 
+cd best-practice-yaml
+
 first build each service
 docker build -t gateway-service ./gateway-service
 docker build -t product-service ./product-service
@@ -12,3 +14,7 @@ kubectl apply -f deployment.yaml
 delete
 kubectl delete deployment product-service
 kubectl delete service product-service
+
+
+# Kubectl syntax
+kubectl get pod
