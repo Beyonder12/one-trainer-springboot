@@ -26,6 +26,9 @@ kubectl apply -f deployment.yaml
 # Deploy extensions metrics untuk mengumpulkan data resource(cpu, memory, etc)
 kubectl apply -f component-metrics.yaml
 
+# Deploy autoscalling
+kubectl apply -f deployment-autoscalling-shipping-service.yaml
+
 # OS yang akan menjadi sumber lonjakan requests infinity
 kubectl run load-generator --image=busybox --restart=Never -- /bin/sh -c "while true; do wget -q -O- http://shipping-service:8083/api/v1/shippings/hello; done"
 
